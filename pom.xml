@@ -11,12 +11,12 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.itkannadigaru</groupId>
-    <artifactId>itkannadigaru-webapp</artifactId>
+    <groupId>com.blogApplication</groupId>
+    <artifactId>blogApplication</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>ITKANNADIGARU Web Application</name>
+    <name>Blog Application</name>
     <description>Spring Boot full-stack app (Undertow + Thymeleaf + SQLite)</description>
 
     <properties>
