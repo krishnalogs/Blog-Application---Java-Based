@@ -1,0 +1,16 @@
+com/blogApplication/model/User.class
+com/blogApplication/repository/PostRepository$PostRowMapper.class
+com/blogApplication/controller/AuthController.class
+com/blogApplication/repository/UserRepository$1.class
+com/blogApplication/service/UserService.class
+com/blogApplication/repository/PostRepository.class
+com/blogApplication/controller/FactsController.class
+com/blogApplication/service/PostService.class
+com/blogApplication/security/SecurityConfig.class
+com/blogApplication/repository/UserRepository.class
+com/blogApplication/controller/AuthController$RegistrationForm.class
+com/blogApplication/controller/DashboardController.class
+com/blogApplication/model/Post.class
+com/blogApplication/blogApplication.class
+com/blogApplication/controller/HomeController.class
+com/blogApplication/database/DatabaseManager.class
