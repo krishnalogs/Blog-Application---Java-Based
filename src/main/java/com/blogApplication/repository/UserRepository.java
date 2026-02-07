@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Optional;
+import org.springframework.lang.NonNull;
 
 @Repository
 public class UserRepository {
@@ -19,14 +20,15 @@ public class UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @NonNull
     private static final RowMapper<User> USER_ROW_MAPPER = new RowMapper<User>() {
         @Override
-        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+        public User mapRow(@NonNull ResultSet rs, int rowNum) throws SQLException {
             User u = new User();
             u.setId(rs.getInt("id"));
             u.setUsername(rs.getString("username"));
             u.setEmail(rs.getString("email"));
-            // Do not expose password
+            u.setPassword(rs.getString("password"));
             return u;
         }
     };
@@ -35,14 +37,7 @@ public class UserRepository {
         try {
             User u = jdbcTemplate.queryForObject(
                     "SELECT id, username, email, password FROM users WHERE username = ?",
-                    (rs, rowNum) -> {
-                        User user = new User();
-                        user.setId(rs.getInt("id"));
-                        user.setUsername(rs.getString("username"));
-                        user.setEmail(rs.getString("email"));
-                        user.setPassword(rs.getString("password"));
-                        return user;
-                    },
+                    USER_ROW_MAPPER,
                     username);
             return Optional.ofNullable(u);
         } catch (EmptyResultDataAccessException e) {
